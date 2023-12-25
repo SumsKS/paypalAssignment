@@ -102,7 +102,7 @@ class CaptureOrder(BaseModel):
 
 
 @app.post("/capture_order")
-async def create_order(order_id: CaptureOrder):
+async def capture_order(order_id: CaptureOrder):
     order_id = order_id.orderID
     print(order_id)
     async with httpx.AsyncClient() as client:
