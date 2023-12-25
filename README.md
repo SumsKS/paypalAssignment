@@ -6,6 +6,12 @@
 
 2. Maximum quantity is limited to 3 
 
+### Installation Steps for setting up the project
+
+1. `pip3 install -r requirements.txt --user` has to be run from the root of the repo
+
+2. `uvicorn app.main:app --port 8000` to run the app
+
 
 ### Paypal Documentation helpful links
 

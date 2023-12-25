@@ -45,10 +45,6 @@ def generate_access_token():
     )
     return json.loads(response.text)["access_token"]
 
-
-ACCESS_TOKEN = generate_access_token()
-
-
 @app.get("/", response_class=HTMLResponse)
 async def get_home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
@@ -81,11 +77,11 @@ async def create_order(create_order: CreateOrder):
             }
         ],
     }
-
+    access_token = generate_access_token()
     async with httpx.AsyncClient() as client:
         response = await client.post(
             f"{PAYPAL_API_BASE_URL}/v2/checkout/orders",
-            headers={"Authorization": f"Bearer {ACCESS_TOKEN}"},
+            headers={"Authorization": f"Bearer {access_token}"},
             json=order_data,
         )
 
@@ -99,18 +95,19 @@ async def create_order(create_order: CreateOrder):
 
 class CaptureOrder(BaseModel):
     orderID: str
-
+    
 
 @app.post("/capture_order")
 async def capture_order(order_id: CaptureOrder):
     order_id = order_id.orderID
     print(order_id)
+    access_token = generate_access_token()
     async with httpx.AsyncClient() as client:
         response = await client.post(
             f"{PAYPAL_API_BASE_URL}/v2/checkout/orders/{order_id}/capture",
             headers={
                 "Content-Type": "application/json",
-                "Authorization": f"Bearer {ACCESS_TOKEN}",
+                "Authorization": f"Bearer {access_token}",
             },
         )
 
