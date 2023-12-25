@@ -10,6 +10,8 @@
 
 4. Language used Python with fastAPI framework
 
+5. Sandbox user credentials - `sb-436hyn28908491@personal.example.com/lI>Z9!)+`
+
 ### Installation Steps for setting up the project
 
 1. `pip3 install -r requirements.txt --user` has to be run from the root of the repo
