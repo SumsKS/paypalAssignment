@@ -1,0 +1,8 @@
+body {
+    padding: 20px;
+}
+
+#product-image {
+    max-width: 100%;
+    height: auto;
+}
