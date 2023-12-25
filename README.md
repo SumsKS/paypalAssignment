@@ -7,16 +7,6 @@
 2. Maximum quantity is limited to 3 
 
 
-### How to build Docker
-
-```
-* docker build -t kspaypalassignment .
-
-* docker run -p 8000:8000 kspaypalassignment
-
-* Open the following URL in a browser: http://127.0.0.1:8000/
-```
-
 ### Paypal Documentation helpful links
 
 * Dummy Cards on Paypal: https://developer.paypal.com/tools/sandbox/card-testing/
