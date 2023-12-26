@@ -31,3 +31,15 @@
 
 * Integration Code and Logic: https://developer.paypal.com/docs/checkout/standard/integrate/
 
+### Steps to generate access_token:
+ curl -v -X POST "https://api-m.sandbox.paypal.com/v1/oauth2/token"\
+ -u "AUHYUhlxVeI3L8v5fpKOIAja_8gmmQJQsukxOGPNjXXXXXXXXdpPhWp_zzMj:ENmHpiuN-ev8WrXXXXXJ"\
+ -H "Content-Type: application/x-www-form-urlencoded"\
+ -d "grant_type=client_credentials"
+
+### Steps to test capture order:
+curl -X POST "https://api-m.sandbox.paypal.com/v2/checkout/orders/55P657475A479652N/capture" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer A21AAKwC96Ystp98x1z4yU-d9rS8JPVTIAqBIEaj1jiQeAP5PAG1XXXXXXX2APAfKQx8Q9Sf4w"
+
+
